@@ -1,22 +1,29 @@
 ﻿using SMProxy.Abstracts;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace SMProxy.Providers
 {
-    public class WindowsProxySetter : IProxySetter
+    public class WindowsProxySetter : ProxySetter, IProxySetter
     {
-        public void Set(string server, string port)
-        {
-            RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
-            registry.SetValue("ProxyEnable", 1);
-            registry.SetValue("ProxyServer", "127.0.0.1:8080");
-        }
+        private const string TEMPLATE_FILE = "command_templates\\setproxy_windows.bat";
+        private string _template;
 
+        protected override string TemplateFilePath { get => TEMPLATE_FILE; }
+        public WindowsProxySetter() : base()
+        {
+
+        }
         public void SetAuto()
         {
             throw new NotImplementedException();
+        }
+
+        protected override string GetPlatformExecutableTempFile()
+        {
+            return $"{Guid.NewGuid()}-{DateTime.Now.Ticks}.bat";
         }
     }
 }

@@ -9,6 +9,9 @@
     <None Update="command_templates\setproxy_mac.sh">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="command_templates\setproxy_windows.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

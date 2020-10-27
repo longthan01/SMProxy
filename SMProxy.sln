@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMProxy", "SMProxy\SMProxy.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMProxy.Tests", "SMProxy.Tests\SMProxy.Tests.csproj", "{51D42B9F-4D68-4BA9-AB58-C00E4140A530}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsProxySetter", "WindowsProxySetter\WindowsProxySetter.csproj", "{1E1016CC-2BE0-4093-BCD6-37337862A8DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{51D42B9F-4D68-4BA9-AB58-C00E4140A530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51D42B9F-4D68-4BA9-AB58-C00E4140A530}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51D42B9F-4D68-4BA9-AB58-C00E4140A530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E1016CC-2BE0-4093-BCD6-37337862A8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1016CC-2BE0-4093-BCD6-37337862A8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1016CC-2BE0-4093-BCD6-37337862A8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1016CC-2BE0-4093-BCD6-37337862A8DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

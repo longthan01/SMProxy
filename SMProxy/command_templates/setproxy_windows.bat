@@ -1,0 +1,1 @@
+﻿cmd /C "WindowsProxySetter.exe --proxy-enabled --host <HOST> --port <PORT>"

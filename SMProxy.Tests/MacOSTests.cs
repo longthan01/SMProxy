@@ -4,7 +4,7 @@ using SMProxy.Providers;
 
 namespace SMProxy.Tests
 {
-    public class Tests
+    public class MacOSTests
     {
         [SetUp]
         public void Setup()
