@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMProxy", "SMProxy\SMProxy.csproj", "{E50A4B10-8937-439A-8C1F-57314AC08EA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMProxy.Tests", "SMProxy.Tests\SMProxy.Tests.csproj", "{51D42B9F-4D68-4BA9-AB58-C00E4140A530}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E50A4B10-8937-439A-8C1F-57314AC08EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E50A4B10-8937-439A-8C1F-57314AC08EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E50A4B10-8937-439A-8C1F-57314AC08EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E50A4B10-8937-439A-8C1F-57314AC08EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51D42B9F-4D68-4BA9-AB58-C00E4140A530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D42B9F-4D68-4BA9-AB58-C00E4140A530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D42B9F-4D68-4BA9-AB58-C00E4140A530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D42B9F-4D68-4BA9-AB58-C00E4140A530}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {125EA9EB-0936-4FE7-8A9F-EE4CBD5D15FD}
+	EndGlobalSection
+EndGlobal

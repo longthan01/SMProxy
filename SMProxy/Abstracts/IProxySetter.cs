@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SMProxy.Abstracts
+{
+    public interface IProxySetter
+    {
+        void SetAuto();
+        void Set(string server, string port);
+    }
+}
