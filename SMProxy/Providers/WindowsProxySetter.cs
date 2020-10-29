@@ -16,11 +16,6 @@ namespace SMProxy.Providers
         {
 
         }
-        public void SetAuto()
-        {
-            throw new NotImplementedException();
-        }
-
         protected override string GetPlatformExecutableTempFile()
         {
             return $"{Guid.NewGuid()}-{DateTime.Now.Ticks}.bat";

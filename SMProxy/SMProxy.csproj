@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SMProxy.Providers\SMProxy.Providers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="command_templates\setproxy_mac.sh">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

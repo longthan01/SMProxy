@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SMProxy.Providers\SMProxy.Providers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SM.Crawler.Libs">
+      <HintPath>bin\Debug\netcoreapp3.1\SM.Crawler.Libs.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

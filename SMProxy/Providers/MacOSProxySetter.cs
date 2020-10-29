@@ -21,11 +21,6 @@ namespace SMProxy.Providers
         protected override string TemplateFilePath => TEMPLATE_FILE;
         #region implementations
 
-        public void SetAuto()
-        {
-            throw new NotImplementedException();
-        }
-
         protected override string GetPlatformExecutableTempFile()
         {
             return $"{Guid.NewGuid()}-{DateTime.Now.Ticks}.sh";

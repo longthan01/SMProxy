@@ -6,7 +6,6 @@ namespace SMProxy.Abstracts
 {
     public interface IProxySetter
     {
-        void SetAuto();
         void Set(string server, string port);
     }
 }

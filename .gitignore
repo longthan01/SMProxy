@@ -5,3 +5,7 @@ SMProxy/bin/
 SMProxy/obj/
 WindowsProxySetter/obj/
 WindowsProxySetter/bin/
+SM.Proxy.proxyscan.io.Provider/obj/
+SMProxy.Providers/obj/
+SM.Proxy.proxyscan.io.Provider/bin/
+SMProxy.Providers/bin/
