@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Text;
 
 namespace SMProxy.Loaders
@@ -13,11 +14,11 @@ namespace SMProxy.Loaders
         public static IEnumerable<IProxyListProvider> Load(string pluginDir)
         {
             var pluginFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), pluginDir);
-            var injectedDlls = new DirectoryInfo(pluginFolder).GetFiles("SM.Proxy.*.dll").Select(x => x.FullName);
+            var injectedDlls = new DirectoryInfo(pluginFolder).GetFiles("*.dll").Select(x => x.FullName);
             List<Assembly> assemblies = new List<Assembly>();
             foreach (var item in injectedDlls)
             {
-                assemblies.Add(Assembly.LoadFile(item));
+                assemblies.Add(AssemblyLoadContext.Default.LoadFromAssemblyPath(item));
             }
             List<IProxyListProvider> providers = new List<IProxyListProvider>();
             foreach (Assembly ass in assemblies)

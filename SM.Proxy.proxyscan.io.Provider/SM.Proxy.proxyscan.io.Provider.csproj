@@ -1,17 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SM.Crawler.Libs" Version="1.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SMProxy.Providers\SMProxy.Providers.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="SM.Crawler.Libs">
-      <HintPath>bin\Debug\netcoreapp3.1\SM.Crawler.Libs.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
