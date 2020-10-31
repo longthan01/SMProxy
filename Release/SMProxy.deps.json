@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SMProxy/1.0.0": {
+        "dependencies": {
+          "SMProxy.Providers": "1.0.0"
+        },
+        "runtime": {
+          "SMProxy.dll": {}
+        }
+      },
+      "SMProxy.Providers/1.0.0": {
+        "runtime": {
+          "SMProxy.Providers.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SMProxy/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SMProxy.Providers/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
