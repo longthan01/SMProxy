@@ -10,6 +10,7 @@ namespace SMProxy.Providers
         private string _template;
         public ProxySetter()
         {
+            
             if (!File.Exists(TemplateFilePath))
             { throw new FileNotFoundException("Command template file did not found"); }
             this._template = File.ReadAllText(TemplateFilePath);

@@ -11,7 +11,6 @@ namespace SMProxy.Providers
     public class MacOSProxySetter : ProxySetter, IProxySetter
     {
         private const string TEMPLATE_FILE = "command_templates\\setproxy_mac.sh";
-        private string _template;
 
         public MacOSProxySetter() : base()
         {

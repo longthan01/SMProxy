@@ -1,18 +1,31 @@
-﻿using SMProxy.Abstracts;
+﻿using log4net;
+using log4net.Config;
+using SMProxy.Abstracts;
 using SMProxy.Loaders;
 using SMProxy.Providers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace SMProxy
 {
     class Program
     {
+        private static void LoadLog4Net()
+        {
+            // Load configuration
+            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+        }
         static void Main(string[] args)
         {
+            // load log4net configuration
+            LoadLog4Net();
+            // do it's job
             SetAuto();
         }
         private static void SetAuto()
