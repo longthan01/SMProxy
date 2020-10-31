@@ -15,9 +15,9 @@ namespace SMProxy.Providers
         public ProxySetter(ILog logger)
         {
             Logger = logger;
+            this.Logger?.Info($"Template file path: {this.TemplateFilePath}");
             if (!File.Exists(TemplateFilePath))
             {
-                this.Logger?.Error($"Template file not found: {this.TemplateFilePath}");
                 throw new FileNotFoundException("Command template file did not found");
             }
             this._template = File.ReadAllText(TemplateFilePath);
