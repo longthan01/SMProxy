@@ -1,2 +1,1 @@
-﻿#!/bin/sh
-networksetup -setsecurewebproxy <HOST> <PORT>
+﻿networksetup -setsecurewebproxy <HOST> <PORT>
