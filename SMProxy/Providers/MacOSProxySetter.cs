@@ -67,13 +67,15 @@ namespace SMProxy.Providers
             { return; }
             string template = File.ReadAllText(this.RemoveProxyTemplateFilePath);
             string command = template;
-            // create temporary file
-            string tempFileName = Path.Combine(Directory.GetCurrentDirectory(), GetPlatformExecutableTempFile());
-            File.WriteAllText(tempFileName, command);
+            
             // start process
             ProcessStartInfo psi = new ProcessStartInfo()
             {
-                FileName = tempFileName,
+                FileName = "/bin/bash",
+                Arguments = $"-c \"{command}\"",
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
             };
             Process proc = new Process() { StartInfo = psi };
             try
@@ -82,13 +84,13 @@ namespace SMProxy.Providers
                 proc.WaitForExit();
                 if (proc.ExitCode != 0)
                 {
+                    Logger?.Error($"Process existed with exit code {proc.ExitCode}");
                     throw new Exception($"Process exited with an error code: {proc.ExitCode}");
                 }
             }
             finally
             {
-                // delete temp file 
-                File.Delete(tempFileName);
+                Logger?.Info("DONE");
             }
         }
     }

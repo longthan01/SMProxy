@@ -1,1 +1,1 @@
-﻿networksetup -setsecurewebproxystate
+﻿networksetup -setsecurewebproxystate Wi-Fi off
