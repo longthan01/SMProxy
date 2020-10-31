@@ -11,14 +11,12 @@ namespace SMProxy.Providers
 {
     public class MacOSProxySetter : ProxySetter, IProxySetter
     {
-        private const string TEMPLATE_FILE = "command_templates\\setproxy_mac.sh";
-
         public MacOSProxySetter(ILog logger) : base(logger)
         {
 
         }
 
-        protected override string TemplateFilePath => TEMPLATE_FILE;
+        protected override string TemplateFilePath => Path.Combine("command_templates", "setproxy_mac.sh");
         #region implementations
 
         protected override string GetPlatformExecutableTempFile()

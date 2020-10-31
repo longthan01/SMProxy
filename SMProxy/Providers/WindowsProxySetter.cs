@@ -9,10 +9,7 @@ namespace SMProxy.Providers
 {
     public class WindowsProxySetter : ProxySetter, IProxySetter
     {
-        private const string TEMPLATE_FILE = "command_templates\\setproxy_windows.bat";
-        private string _template;
-
-        protected override string TemplateFilePath { get => TEMPLATE_FILE; }
+        protected override string TemplateFilePath { get => Path.Combine("command_templates", "setproxy_windows.bat"); }
         public WindowsProxySetter(ILog logger) : base(logger)
         {
             
