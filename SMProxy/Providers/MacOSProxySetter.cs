@@ -46,8 +46,10 @@ namespace SMProxy.Providers
             Process proc = new Process() { StartInfo = psi };
             try
             {
+                Logger.Info($"Running command: {command}");
                 proc.Start();
                 proc.WaitForExit();
+                Logger.Info($"Process existed with exit code {proc.ExitCode}");
                 if (proc.ExitCode != 0)
                 {
                     throw new Exception($"Process exited with an error code: {proc.ExitCode}");
