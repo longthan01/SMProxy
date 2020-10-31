@@ -58,7 +58,7 @@ namespace SMProxy.Providers
             {
                 // delete temp file 
                 File.Delete(tempFileName);
-                Logger?.Info($"Process existed with exit code {proc.ExitCode}");
+                Logger?.Error($"Process existed with exit code {proc.ExitCode}");
             }
 
         }
