@@ -15,6 +15,8 @@ namespace SMProxy
 {
     class Program
     {
+        private static readonly ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         private static void LoadLog4Net()
         {
             // Load configuration
@@ -50,13 +52,13 @@ namespace SMProxy
             bool isLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
             if (isWindows)
             {
-                return new WindowsProxySetter();
+                return new WindowsProxySetter(logger);
             }
             else
             {
                 if (isOSX)
                 {
-                    return new MacOSProxySetter();
+                    return new MacOSProxySetter(logger);
                 }
             }
             return null;

@@ -14,7 +14,7 @@ namespace SMProxy.Tests
         [Test]
         public void CreateProxySetterForMacOS_ShouldPass()
         {
-            IProxySetter ps = new MacOSProxySetter();
+            IProxySetter ps = new MacOSProxySetter(null);
             ps.Set("1.1.1.1", "8080");
             Assert.True(true);
         }

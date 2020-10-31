@@ -1,4 +1,5 @@
-﻿using SMProxy.Abstracts;
+﻿using log4net;
+using SMProxy.Abstracts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +13,7 @@ namespace SMProxy.Providers
     {
         private const string TEMPLATE_FILE = "command_templates\\setproxy_mac.sh";
 
-        public MacOSProxySetter() : base()
+        public MacOSProxySetter(ILog logger) : base(logger)
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using SMProxy.Abstracts;
+﻿using log4net;
+using SMProxy.Abstracts;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,9 +13,9 @@ namespace SMProxy.Providers
         private string _template;
 
         protected override string TemplateFilePath { get => TEMPLATE_FILE; }
-        public WindowsProxySetter() : base()
+        public WindowsProxySetter(ILog logger) : base(logger)
         {
-
+            
         }
         protected override string GetPlatformExecutableTempFile()
         {

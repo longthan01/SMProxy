@@ -18,7 +18,7 @@ namespace SMProxy.Tests
         [Test]
         public void CreateProxySetterForWindows_ShouldPass()
         {
-            IProxySetter ps = new WindowsProxySetter();
+            IProxySetter ps = new WindowsProxySetter(null);
             ps.Set("1.1.1.3", "8080");
             Assert.True(true);
         }
