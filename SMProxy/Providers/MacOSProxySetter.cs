@@ -16,7 +16,8 @@ namespace SMProxy.Providers
 
         }
 
-        protected override string TemplateFilePath => Path.Combine("command_templates", "setproxy_mac.sh");
+        private string SetProxyTemplateFilePath => Path.Combine("command_templates", "setproxy_mac.sh");
+        private string RemoveProxyTemplateFilePath => Path.Combine("command_templates", "removeproxy_mac.sh");
         #region implementations
 
         protected override string GetPlatformExecutableTempFile()
@@ -24,16 +25,14 @@ namespace SMProxy.Providers
             return $"{Guid.NewGuid()}-{DateTime.Now.Ticks}.sh";
         }
         #endregion
-        public override void Set(string server, string port)
+        public void Set(string server, string port)
         {
             this.Logger?.Info($"Setting proxy: {server}:{port}");
-            string template = File.ReadAllText(this.TemplateFilePath);
+            string template = File.ReadAllText(this.SetProxyTemplateFilePath);
             string command = template
                 .Replace("<HOST>", server)
                 .Replace("<PORT>", port);
-            // create temporary file
-            string tempFileName = Path.Combine(Directory.GetCurrentDirectory(), GetPlatformExecutableTempFile());
-            File.WriteAllText(tempFileName, command);
+           
             // start process
             ProcessStartInfo psi = new ProcessStartInfo()
             {
@@ -51,6 +50,38 @@ namespace SMProxy.Providers
                 proc.WaitForExit();
                 if (proc.ExitCode != 0)
                 {
+                    Logger?.Error($"Process existed with exit code {proc.ExitCode}");
+                    throw new Exception($"Process exited with an error code: {proc.ExitCode}");
+                }
+            }
+            finally
+            {
+                Logger?.Info("DONE");
+            }
+        }
+
+        public void Remove()
+        {
+            this.Logger?.Info($"Removing proxy");
+            if (!this.ValidateTemplateFile(this.RemoveProxyTemplateFilePath))
+            { return; }
+            string template = File.ReadAllText(this.RemoveProxyTemplateFilePath);
+            string command = template;
+            // create temporary file
+            string tempFileName = Path.Combine(Directory.GetCurrentDirectory(), GetPlatformExecutableTempFile());
+            File.WriteAllText(tempFileName, command);
+            // start process
+            ProcessStartInfo psi = new ProcessStartInfo()
+            {
+                FileName = tempFileName,
+            };
+            Process proc = new Process() { StartInfo = psi };
+            try
+            {
+                proc.Start();
+                proc.WaitForExit();
+                if (proc.ExitCode != 0)
+                {
                     throw new Exception($"Process exited with an error code: {proc.ExitCode}");
                 }
             }
@@ -58,9 +89,7 @@ namespace SMProxy.Providers
             {
                 // delete temp file 
                 File.Delete(tempFileName);
-                Logger?.Error($"Process existed with exit code {proc.ExitCode}");
             }
-
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace SMProxy
@@ -27,8 +28,65 @@ namespace SMProxy
         {
             // load log4net configuration
             LoadLog4Net();
-            // do it's job
-            SetAuto();
+            try
+            {
+                var parameters = ParseParams(args);
+                string param = parameters.First().Key;
+                if(param == "--auto")
+                {
+                    SetAuto();
+                }
+                else if(param == "--remove")
+                {
+                    Remove();
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error($"{ex.Message}");
+                PrintMenu();
+            }
+        }
+
+        #region params parsing
+        private static void PrintMenu()
+        {
+            Console.WriteLine($"dotnet SMProxy.dll <params>");
+            Console.WriteLine($"<params> can be:");
+            Console.WriteLine($"    --auto");
+            Console.WriteLine($"    --remove");
+        }
+        private static string GetParam(Dictionary<string, string> parameters, string name)
+        {
+            if (!parameters.ContainsKey(name))
+            {
+                return null;
+            }
+
+            return parameters.FirstOrDefault(x => x.Key.Equals(name, StringComparison.OrdinalIgnoreCase)).Value;
+        }
+        private static Dictionary<string, string> ParseParams(string[] args)
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (i + 1 < args.Length && !args[i + 1].StartsWith("--"))
+                {
+                    parameters.Add(args[i], args[i + 1]);
+                    i++;
+                }
+                else
+                {
+                    parameters.Add(args[i], "");
+                }
+            }
+            return parameters;
+        } 
+        #endregion
+        private static void Remove()
+        {
+            IProxySetter proxySetter = GetProxySetter();
+            proxySetter.Remove();
         }
         private static void SetAuto()
         {

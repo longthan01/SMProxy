@@ -1,1 +1,1 @@
-﻿networksetup -setsecurewebproxy <HOST> <PORT>
+﻿networksetup -setsecurewebproxy Wi-Fi <HOST> <PORT>

@@ -1,0 +1,1 @@
+﻿networksetup -setsecurewebproxystate

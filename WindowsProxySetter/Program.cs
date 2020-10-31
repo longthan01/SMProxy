@@ -15,12 +15,13 @@ namespace WindowsProxySetter
             var proxyEnabled = parameters.ContainsKey("--proxy-enabled");
             var host = GetParam(parameters, "--host");
             var port = GetParam(parameters, "--port");
-            if(parameters.Count == 0)
+           
+            string uri = $"{host}:{port}";
+            if(string.IsNullOrEmpty(host) || string.IsNullOrEmpty(port))
             {
-                PrintMenu();
-                return;
+                uri = "";
             }
-            SetProxy($"{host}:{port}", proxyEnabled);
+            SetProxy(uri, proxyEnabled);
         }
         private static void SetProxy(string uri, bool enabled)
         {

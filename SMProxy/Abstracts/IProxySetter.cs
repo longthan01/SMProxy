@@ -7,5 +7,6 @@ namespace SMProxy.Abstracts
     public interface IProxySetter
     {
         void Set(string server, string port);
+        void Remove();
     }
 }
